@@ -15,17 +15,14 @@ ligado(g,l).
 ligado(g,m).
 ligado(k,n).
 ligado(l,o).
-ligado(i,f). 
+ligado(i,f).
 
-solution(Init, Fin, SOL) :-
-    prof(Init, Fin, [], SOL).
-
-prof(Init, Fin, PATH, SOL) :-
-    Init == Fin,
-    reverse(PATH, SOL).
-
-prof(path, init, fin, afterpath) :-
-    ligado(init, next),
-    \+ member(init, path),
-    prof([init | path], next, fin, afterpath).
-    
+% a)
+caminho_prof(I, F, Sol) :-
+    prof(I, F, [], Sol).
+prof(I, I, Caminho, Sol) :-
+    rev([I | Caminho], Sol).
+prof(I, F, Caminho, Sol) :-
+    ligado(I, Prox),
+    \+append(_, [Prox | _], Caminho),
+    prof(Prox, F, [I | Caminho], Sol).
