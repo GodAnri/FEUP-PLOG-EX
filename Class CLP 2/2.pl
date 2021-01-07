@@ -1,0 +1,30 @@
+:- use_module(library(clpfd)).
+:- use_module(library(lists)).
+
+musicos :-
+    Nomes = ['Joao', 'Antonio', 'Francisco'],
+    Joao = 0,
+    Antonio = 1,
+    Francisco = 2,
+    Instrumentos = [Harpa, Violino, Piano],
+    DiaEnsaio = [Terca, Quinta1, Quinta2],
+    domain(Instrumentos, 0, 2),
+    domain(DiaEnsaio, 0, 2),
+    all_distinct(Instrumentos),
+    all_distinct(DiaEnsaio),
+    Antonio #\= Piano,
+    Piano #= Terca,
+    Joao #= Quinta1,
+    Violino #= Quinta2,
+    labeling([], Instrumentos),
+    nth0(Harpa, Nomes, NomeHarpa),
+    nth0(Violino, Nomes, NomeViolino),
+    nth0(Piano, Nomes, NomePiano),
+    write('Harpa: '),
+    write(NomeHarpa),
+    nl,
+    write('Violino: '),
+    write(NomeViolino),
+    nl,
+    write('Piano: '),
+    write(NomePiano). 
