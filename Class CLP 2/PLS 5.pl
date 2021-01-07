@@ -1,3 +1,5 @@
+:- use_module(library(clpfd)).
+
 cars :-
     ColorCaption = ['Yellow', 'Green', 'Blue', 'Black'],
     Color = [Yellow, Green, Blue, Black],

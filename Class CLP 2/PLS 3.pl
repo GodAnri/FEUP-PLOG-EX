@@ -1,3 +1,5 @@
+:- use_module(library(clpfd)).
+
 shopping :-
     Nomes = ['Adams', 'Baker', 'Catt', 'Dodge', 'Ennis', 'Fisk'],
     Andares = [A1, A21, A22, A3, A5, A6],
