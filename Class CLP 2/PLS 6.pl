@@ -1,0 +1,2 @@
+% Qual porta o outro guarda dirá que conduz à liberdade? (O verdadeiro dirá que o mentiroso apontará para a dos crocodilos; o mentiroso dirá que
+% o verdadeiro apontará para a dos crocodilos; ambos dirão qual a que tem crocodilos - permitindo escolher a que conduz à liberdade)
