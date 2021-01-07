@@ -1,28 +1,13 @@
-fatorial(0, 1).
-fatorial(1, 1).
-fatorial(N, R) :-
-    N > 1,
-    N_ is N - 1,
-    fatorial(N_, R_),
-    R is N * R_.
+sum_prev([1], [1]).
+sum_prev([A, B | PrevL], Line) :-
+    sum_prev([B | PrevL], L),
+    Sum is A + B,
+    append([Sum], L, Line).
 
-comb(N,N,1).
-comb(N,A,L) :-
-    N > A,
-    fatorial(A, R1),
-    N_ is N - A,
-    fatorial(N_, R2),
-    Div is R1 * R2,
-    fatorial(N, R3),
-    L is div(R3, Div).
-
-addterm(N,N,[1]). 
-addterm(N,A,L) :-
-    N > A,
-    A_ is A + 1,
-    comb(N,A,T),
-    addterm(N,A_,Aux),
-    append([T],Aux,L).
-
-pascal(N,L) :-
-    addterm(N,0,L).
+pascal(1,[1]) :- !.
+pascal(1,[1,1]) :- !.
+pascal(N, L) :-
+    PrevN is N - 1,
+    pascal(PrevN, PrevL),
+    sum_prev(PrevL, Line),
+    L = [1 | Line].

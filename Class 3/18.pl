@@ -11,6 +11,7 @@ multiply([H | T], N, [H | L]) :-
     multiply(T, N, Res).
 
 repeat(_, 0, L, Res) :-
+    !,
     Res = L.
 repeat(H, N, [H | T], Res) :-
     N_ is N - 1,
